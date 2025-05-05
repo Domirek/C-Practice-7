@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+
+// Задача 1: Функция max
+
+int max(int a, int b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+    // Или, более кратко: return (a > b) ? a : b;
+}
+
+int main() {
+    int a, b;
+
+    // Вводим два числа
+    printf("Type a two numbers:\n");
+    scanf("%d %d", &a, &b);
+
+    // Используем функцию max
+    printf("The max num is %d", max(a,b));
+    
+    return 0;
+}
+
+/* Вывод:
+Type a two numbers:
+14 9
+The max num is 14
+*/

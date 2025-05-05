@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <string.h>
+
+int indexOf(char text[], char word[]) {
+    int index = -1;
+    int textLength = 0;
+    int wordLength = 0;
+
+     // Считаем длину text
+    while (text[textLength] != '\0') {
+        textLength++;
+    }
+
+    // Считаем длину word
+    while (word[wordLength] != '\0') {
+        wordLength++;
+    }
+    
+     // Ищем word в text
+    for (int i = 0; i <= textLength -  wordLength; i++) {
+        int match = 1;
+        for (int j = 0; j <  wordLength; j++) {
+            if (text[i + j] != word[j]) {
+                match = 0;
+                break;
+            }
+        }
+        if (match == 1) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index != -1) {
+        printf("Слово \"%s\" найдено на позиции %d\n", word, index);
+    } else {
+        printf("Слово \"%s\" не найдено\n", word);
+    }
+
+
+    return index;
+}
+
+int main() {
+    char text[] = "the cat sat on the mat";
+    char word[] = "cat";
+    
+    indexOf(text, word); //Вызов функции
+
+
+    return 0;
+}
+
+/*
+Вывод1: 
+Слово "cat" найдено на позиции 4
+
+Вывод2: 
+Слово "вat" не найдено
+*/
